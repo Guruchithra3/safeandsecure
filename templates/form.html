@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Layout</title>
+    <style>
+        .card-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 300px;
+            border-radius: 5px;
+            margin-right: 20px;
+            border: 1px solid #ddd; /* Add a consistent border */
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 25px 0 rgba(0,0,0,0.2);
+        }
+
+        img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        .definition {
+            max-width: 300px;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .definition {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 10px;
+            }
+        }
+        .but{
+             display: inline;
+             padding: 0 20px;
+             padding: 0 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #d65106;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome All</h1>
+        <h1><b>{{namekey.Firstname }}</b></h1>
+    </div>
+    <div class="row">
+        <div class="card-container">
+            <div class="card">
+
+                    <img src="{% static 'images/p-diary.jpg' %}" alt="Avatar">
+                    <div class="container">
+                        <p>PERSONAL DETAIL</p>
+                        <a href="personal"><button>ADD</button></a>
+
+                    </div>
+
+            </div>
+            <p class="definition">Personal details include name, age, contact information, and more.</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+
+                <img src="{% static 'images/p-education.jpg' %}" alt="Avatar">
+                <div class="container">
+                    <p>EDUCATION DETAIL</p>
+                    <a href="educational"><button>ADD</button></a>
+                </div>
+
+            </div>
+            <p class="definition">Education details include academic history, qualifications, and achievements.</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+
+                <img src="{% static 'images/p-finance.jpeg' %}" alt="Avatar">
+                <div class="container">
+                    <p>FINANCE DETAIL</p>
+                    <a href="financial"><button>ADD</button></a>
+                </div>
+
+            </div>
+            <p class="definition">Finance details include income, expenses, and financial assets.</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+
+                <img src="{% static 'images/p_medicine.jpeg' %}" alt="Avatar">
+                <div class="container">
+                    <p>MEDICAL DETAIL</p>
+                    <a href="medical"><button>ADD</button></a>
+
+                </div>
+
+            </div>
+            <p class="definition">Medical details include health records, medications, and medical history.</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+
+                <img src="{% static 'images/p-number.jpeg' %}" alt="Avatar">
+                <div class="container">
+
+                    <a href="professional"><button>ADD</button></a>
+
+                </div>
+
+            </div>
+            <p class="definition">Numbers include contact numbers, emergency contacts, and other important numbers.</p>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <div class="but">
+        <a href="data"><button>VIEW ALL DATA</button></a>
+
+        <a href="signin">
+            <button type="submit">BACK</button></a>
+    <a href="lout">
+        <button type="submit">Log out</button>
+    </a>
+    </div>
+        </div>
+    </div>
+</body>
+</html>

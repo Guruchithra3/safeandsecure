@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Data</title>
+    <style>
+         <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-top: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;ss
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>All Data</h1>
+
+    <h2>Personal Data</h2>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Date of birth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Zipcode</th>
+
+        </tr>
+        {% for item in personal_data %}
+        <tr>
+            <td>{{item.fullname }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.mobile }}</td>
+            <td>{{ item.dob}}</td>
+            <td>{{ item.gender }}</td>
+             <td>{{ item.address}}</td>
+            <td>{{ item.pincode}}</td>
+        </tr>
+        <button type="button">
+                                            <a href="{% url 'edit_personal' item.id %}">Update</a>
+                                        </button>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                              <a href="{% url 'delete_personal' item.id %}">Delete</a>
+                                        </button>
+        {% endfor %}
+    </table>
+
+    <h2>Educational Data</h2>
+    <table>
+        <tr>
+            <th>Degree</th>
+            <th>Specialization</th>
+            <th>CGPA</th>
+            <th>College</th>
+            <th>Passout</th>
+
+
+        </tr>
+        {% for item in educational_data %}
+        <tr>
+            <td>{{ item.degree}}</td>
+            <td>{{ item.specialization }}</td>
+            <td>{{ item.cgpa}}</td>
+             <td>{{ item.college}}</td>
+            <td>{{ item.passoutyear}}</td>
+
+        </tr>
+                                         <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                            <a href="{% url 'edit_educational' item.id %}">Update</a>
+                                        </button>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                              <a href="{% url 'delete_educational' item.id %}">Delete</a>
+                                        </button>
+
+        {% endfor %}
+    </table>
+
+    <h2>Medical Data</h2>
+    <table>
+        <tr>
+            <th>Blood Pressure</th>
+            <th> Cholestrol</th>
+            <th> Diabetics</th>
+            <th> Thyroid</th>
+            <th>Asthme</th>
+            <th>Allergy</th>
+            <th>Heart Disease</th>
+        </tr>
+        {% for item in  medical_data %}
+        <tr>
+            <td>{{ item.bloodpressure  }}</td>
+            <td>{{ item.cholestrol }}</td>
+            <td>{{ item.diabetics }}</td>
+            <td>{{  item.thyroid  }}</td>
+            <td>{{  item.asthma}}</td>
+            <td>{{ item.allergy}}</td>
+             <td>{{ item.heartdisease}}</td>
+        </tr>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                             <a href="{% url 'edit_medical' item.id %}">Update</a>
+                                        </button>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                              <a href="{% url 'delete_medical' item.id %}">Delete</a>
+                                        </button>
+        {% endfor %}
+    </table>
+
+    <h2>Financial Data</h2>
+    <table>
+        <tr>
+            <th>Income</th>
+            <th> Amount</th>
+            <th> Expense</th>
+            <th>Amount</th>
+
+        </tr>
+        {% for item in  financial_data %}
+        <tr>
+            <td>{{ item.income_item1 }}</td>
+            <td>{{ item.income_amount1  }}</td>
+            <td>{{ item.expense_item1 }}</td>
+            <td>{{ item.expense_amount1 }}</td>
+
+        </tr>
+
+
+
+                                         <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                            <a href="{% url 'edit_financial' item.id %}">Update</a>
+                                        </button>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                             <a href="{% url 'delete_financial' item.id %}">Delete</a>
+                                        </button>
+
+
+
+
+     {% endfor %}
+    </table>
+
+    <h2>Number Data</h2>
+    <table>
+        <tr>
+
+            <th>Aadhaar</th>
+            <th>Bank Account </th>
+             <th>Pan</th>
+            <th>Election_idr</th>
+            <th>Driving License</th>
+            <th>Passport Number</th>
+        </tr>
+        {% for item in professional_data %}
+        <tr>
+            <td>{{ item.aadhaar}}</td>
+            <td>{{ item.account }}</td>
+            <td>{{ item.pancard }}</td>
+            <td>{{ item.electionid  }}</td>
+            <td>{{ item.drivinglicense }}</td>
+            <td>{{ item.passport }}</td>
+
+        </tr>
+
+
+
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                             <a href="{% url 'edit_professional' item.id %}">Update</a>
+                                        </button>
+                                        <button type="button" class="btn custom-btn form-control mt-4 mb-3">
+                                              <a href="{% url 'delete_financial' item.id %}">Delete</a>
+                                        </button>
+
+        {% endfor %}
+    </table>
+
+
+    <div class="but">
+        <a href="form"><button type="submit">BACK</button></a>
+        <a href="index"><button type="submit">Log out</button></a>
+    </div>
+</body>
+</html>
